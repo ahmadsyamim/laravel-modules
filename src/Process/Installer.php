@@ -304,6 +304,6 @@ class Installer
             'cd %s && composer require %s',
             base_path(),
             $this->getPackageName()
-        ));
+        ), null, ['COMPOSER_HOME' => getenv('COMPOSER_HOME')]);
     }
 }
