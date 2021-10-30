@@ -300,6 +300,7 @@ class Installer
      */
     public function installViaComposer()
     {
+        if (!getenv('COMPOSER_HOME')) { throw new \Exception('The HOME or COMPOSER_HOME environment variable must be set for composer to run correctly.'); }
         return Process::fromShellCommandline(sprintf(
             'cd %s && composer require %s',
             base_path(),
